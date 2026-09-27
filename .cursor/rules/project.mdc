@@ -1,0 +1,5 @@
+---
+description: Clement Lab project rules
+alwaysApply: true
+---
+Read and follow `AGENTS.md` at the repo root. Task playbooks live in `.agents/skills/`.

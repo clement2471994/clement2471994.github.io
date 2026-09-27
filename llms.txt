@@ -1,0 +1,10 @@
+# Clement Lab
+
+> Personal lab site of Clement (GitHub: clement2471994). Static site on GitHub Pages.
+
+## Pages
+- [Home](https://clement2471994.github.io/): Clement Lab landing page
+
+## Source
+- [Repository](https://github.com/clement2471994/clement2471994.github.io)
+- [Agent instructions](https://clement2471994.github.io/AGENTS.md)
