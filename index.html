@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clement Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#07070c; --a:#7c5cff; --b:#00e5ff; --c:#ff3cac; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; }
+  body {
+    background: var(--bg);
+    color:#e8e8f0;
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .blob { position:fixed; border-radius:50%; filter:blur(90px); opacity:.55; animation:float 18s ease-in-out infinite; }
+  .b1 { width:480px; height:480px; background:var(--a); top:-120px; left:-100px; }
+  .b2 { width:420px; height:420px; background:var(--b); bottom:-140px; right:-80px; animation-delay:-6s; }
+  .b3 { width:320px; height:320px; background:var(--c); top:40%; left:55%; animation-delay:-12s; opacity:.35; }
+  @keyframes float {
+    0%,100% { transform:translate(0,0) scale(1); }
+    33% { transform:translate(60px,-40px) scale(1.1); }
+    66% { transform:translate(-40px,50px) scale(.95); }
+  }
+  .grid {
+    position:fixed; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
+  }
+  .card {
+    position:relative; z-index:1; text-align:center;
+    padding:4rem 5rem; border-radius:28px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(18px);
+    box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08);
+    animation:rise 1.2s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes rise { from { opacity:0; transform:translateY(30px) scale(.97); } }
+  .tag { font-size:.8rem; letter-spacing:.4em; text-transform:uppercase; color:#9a9ab5; margin-bottom:1.2rem; }
+  h1 {
+    font-size:clamp(3rem,10vw,7rem); font-weight:700; letter-spacing:-.03em; line-height:1;
+    background:linear-gradient(120deg,var(--b),var(--a),var(--c),var(--b));
+    background-size:300% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shine 8s linear infinite;
+  }
+  @keyframes shine { to { background-position:300% 0; } }
+  .line { width:80px; height:2px; margin:1.8rem auto; background:linear-gradient(90deg,transparent,var(--b),transparent); }
+  p { font-weight:300; color:#b8b8cc; font-size:1.1rem; }
+  .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:#3dffa0; margin-right:.5rem; box-shadow:0 0 12px #3dffa0; animation:pulse 2s infinite; }
+  @keyframes pulse { 50% { opacity:.3; } }
+  footer { position:fixed; bottom:1.5rem; width:100%; text-align:center; font-size:.8rem; color:#55556a; z-index:1; }
+</style>
+</head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="grid"></div>
+  <main class="card">
+    <div class="tag">Welcome to</div>
+    <h1>Clement Lab</h1>
+    <div class="line"></div>
+    <p><span class="dot"></span>Experiments in progress</p>
+  </main>
+  <footer>&copy; <span id="y"></span> Clement Lab</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
